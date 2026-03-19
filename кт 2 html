@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мой Магазин</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+<div class="header__container">
+<h1 class="header__title">Мой Магазин</h1>
+<button class="theme-toggle" id="theme-toggle">Тёмная тема</button>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero__content">
+<h2 class="hero__title">Главная распродажа года</h2>
+<p class="hero__text">Скидки до 50% на лучшие товары</p>
+<a href="#products" class="hero__button">Подробнее</a></div>
+</section>
+
+<section class="products" id="products">
+<h2 class="section-title">Наши товары</h2>
+<div class="products__grid">
+
+<div class="product-card">
+<img src=https://online-samsung.ru/sites/default/files/styles/product_full/public/2024-01/SM-A256ELBHCAU_1-min.png.webp?itok=2VnUkD0J alt="Товар 1" class="product-card__image">
+<h3 class="product-card__title">Смартфон</h3>
+<p class="product-card__price">Цена: 11000 ₽</p>
+<button class="product-card__buy" data-product="Смартфон">В корзину</button>
+</div>
+
+<div class="product-card">
+<img src=https://static.vecteezy.com/system/resources/previews/039/630/611/non_2x/ai-generated-white-headphones-luxury-white-headphones-isolated-transparent-background-free-png.png alt="Товар 2" class="product-card__image">
+<h3 class="product-card__title">Наушники</h3>
+<p class="product-card__price">Цена: 3000 ₽</p>
+<button class="product-card__buy" data-product="Наушники">В корзину</button>
+</div>
+
+<div class="product-card">
+<img src=https://mi-shop.com/upload/iblock/81d/amm9q7b6e3jyxhzqyd8l1rhfrm4kz9nv.png alt="Товар 3" class="product-card__image">
+<h3 class="product-card__title">Часы</h3>
+<p class="product-card__price">Цена: 1500 ₽</p>
+<button class="product-card__buy" data-product="Часы">В корзину</button>
+</div>
+</div>
+</section>
+
+<section class="cart-counter-section">
+<div class="cart-info">
+<h3>Ваша корзина</h3>
+<div class="cart-controls">
+<span class="cart-count" id="cart-count">0</span>
+<span>товаров</span>
+</div>
+<p class="cart-note">Нажимайте "В корзину", чтобы добавить товар. Используйте кнопки ниже для ручной корректировки:</p>
+<div class="cart-buttons">
+<button id="cart-decrement"> Убрать</button>
+</div>
+</div>
+</section>
+
+<section class="feedback">
+<h2 class="section-title">Оставьте отзыв</h2>
+<form class="feedback-form" id="feedback-form">
+<div class="form-group">
+<label for="name">1. Ваше имя:</label>
+<input type="text" id="name" name="name" placeholder="Иван" required>
+</div>
+
+<div class="form-group">
+<label for="email">2. Ваш Email:</label>
+<input type="email" id="email" name="email" placeholder="ivan@mail.ru" required>
+</div>
+
+<div class="form-group">
+<label>3. Как вы оцениваете наш сайт?</label>
+<div class="radio-group">
+<label><input type="radio" name="rating" value="5" checked> Отлично</label>
+<label><input type="radio" name="rating" value="4"> Хорошо</label>
+<label><input type="radio" name="rating" value="3"> Средне</label>
+</div>
+</div>
+
+<div class="form-group">
+<label for="product-choice">4. Какой товар вас интересует?</label>
+<select id="product-choice" name="product">
+<option value="smartphone">Смартфон</option>
+<option value="headphones">Наушники</option>
+<option value="watch">Часы</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="message">5. Ваш комментарий:</label>
+<textarea id="message" name="message" rows="3" placeholder="Напишите пару слов..."></textarea>
+</div>
+
+<button type="submit" class="form-submit">Отправить</button>
+</form>
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer__container">
+<p>&copy; 2023 Мой Магазин. Все права защищены.</p>
+<p>г. Москва, ул. Примерная, д. 1</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

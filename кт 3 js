@@ -1,0 +1,95 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+body.classList.add('dark-theme');
+themeToggleBtn.textContent = 'Светлая тема';
+}
+
+themeToggleBtn.addEventListener('click', function() {
+body.classList.toggle('dark-theme');
+        
+if (body.classList.contains('dark-theme')) {
+themeToggleBtn.textContent = 'Светлая тема';
+localStorage.setItem('theme', 'dark');
+} 
+else {
+themeToggleBtn.textContent = 'Тёмная тема';
+localStorage.setItem('theme', 'light');
+}
+});
+
+let cartCount = 0;
+const cartCountElement = document.getElementById('cart-count');
+const buyButtons = document.querySelectorAll('.product-card__buy');
+const incrementBtn = document.getElementById('cart-increment');
+const decrementBtn = document.getElementById('cart-decrement');
+
+
+function updateCartDisplay() {
+cartCountElement.textContent = cartCount;
+}
+
+buyButtons.forEach(button => {
+button.addEventListener('click', function() {
+cartCount++;
+updateCartDisplay();         
+console.log(`Товар "${this.dataset.product}" добавлен в корзину`);
+});
+});
+
+if (incrementBtn) {
+incrementBtn.addEventListener('click', function() {
+cartCount++;
+updateCartDisplay();
+});
+}
+
+
+if (decrementBtn) {
+decrementBtn.addEventListener('click', function() {
+if (cartCount > 0) {
+cartCount--;
+updateCartDisplay();
+} 
+else {
+alert('Корзина уже пуста!');
+}
+});
+}
+
+const feedbackForm = document.getElementById('feedback-form');
+    
+if (feedbackForm) {
+feedbackForm.addEventListener('submit', function(e) {
+e.preventDefault(); // Отменяем реальную отправку
+
+const formData = new FormData(feedbackForm);
+const data = {};
+formData.forEach((value, key) => {
+data[key] = value;
+});
+console.log('Данные формы:', data);          
+alert('Спасибо за отзыв! (Данные отправлены в консоль)');           
+feedbackForm.reset();
+});
+}
+
+const heroButton = document.querySelector('.hero__button');
+let heroClicks = 0;
+    
+if (heroButton) {
+heroButton.addEventListener('click', function(e) {
+e.preventDefault(); 
+heroClicks++;
+console.log(`Кликов по кнопке "Подробнее": ${heroClicks}`);
+alert(`Вы нажали на кнопку "Подробнее" ${heroClicks} раз(а)`);
+document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+});
+}
+
+console.log('Сайт загружен! Добро пожаловать в Мой Магазин');
+});
